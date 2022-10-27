@@ -1,0 +1,23 @@
+﻿@using _08_Ejercicio8
+
+@{
+   
+    //Se llama al objeto pasado por el controller
+    @model _08_Ejercicio8.clsPersona
+
+
+    /*
+     * Se crea un formulario tipo post, para poder enviar los datos al controller. Cada atributo es recogido de una forma diferente.
+     */
+    <form method="post">
+    
+        <input type="number" name="id" value=@Model.Id>
+        <br>
+        @Html.TextBox("Nombre")
+        <br>
+        @Html.TextBoxFor(persona=> persona.Apellido)  
+        <br>
+        <button type="submit">Editar persona</button>
+    
+    </form>
+}

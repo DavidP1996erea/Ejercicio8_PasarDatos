@@ -16,7 +16,12 @@ namespace Ejercicio8_Ejercicio1.Controllers
         }
 
 
-
+        /// <summary>
+        /// Se crea un controller llamado Saludo, que recibe como parámetro un String nombre, que se creó en el Html.ActionLink.
+        /// Eviará un ViewBag con un saludo y el nombre que se haya puesto en el Html.ActionLink
+        /// </summary>
+        /// <param name="nombre"></param>
+        /// <returns></returns>
         public ActionResult Saludo(String nombre)
         {
            
