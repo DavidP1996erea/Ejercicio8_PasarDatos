@@ -21,8 +21,7 @@ namespace Ejercicio8_Ejercicio2.Controllers
 
         /// <summary>
         /// Este index HttPost recoge el input del formulario creado en Index, que se llamará como el input.
-        /// También se meterá en un TemData para poder usarlo en Saludo. En el return se redireccionará al controller
-        /// Saludo.
+        /// También se meterá en un TemData para poder usarlo en Saludo. En el return se llama a la vista Saludo.
         /// </summary>
         /// <param name="nombreInput"></param>
         /// <returns></returns>
@@ -30,11 +29,9 @@ namespace Ejercicio8_Ejercicio2.Controllers
         public ActionResult Index(String nombreInput)
         {
 
-            TempData["Nombre"] = nombreInput;
+            ViewBag.nombre="Buenas "+ nombreInput;
 
-           
-
-            return RedirectToAction("Saludo");
+            return View("Saludo");
 
         }
 
@@ -44,9 +41,7 @@ namespace Ejercicio8_Ejercicio2.Controllers
         /// <returns></returns>
         public ActionResult Saludo()
         {
-            String saludo = "Buenas " + TempData["Nombre"];
-
-            ViewBag.saludar = saludo;
+                      
 
             return View();
         }

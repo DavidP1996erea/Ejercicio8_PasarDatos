@@ -47,9 +47,11 @@ namespace Ejercicio8_Ejercicio3.Controllers
             personaAModificar.Nombre = nombre;
             personaAModificar.Apellido = apellido;
 
-        
+            String persona = personaAModificar.Id + " " + personaAModificar.Nombre + " " + personaAModificar.Apellido;
 
-            return RedirectToAction("PersonaModificada", personaAModificar);
+            ViewBag.MostrarPersona = persona;
+
+            return View("PersonaModificada");
 
         }
 
@@ -63,9 +65,7 @@ namespace Ejercicio8_Ejercicio3.Controllers
         public ActionResult PersonaModificada(clsPersona personaAModificar)
         {
 
-            String persona = personaAModificar.Id + " " + personaAModificar.Nombre + " " + personaAModificar.Apellido;
-
-            ViewBag.MostrarPersona = persona;
+           
 
             return View();
         }
