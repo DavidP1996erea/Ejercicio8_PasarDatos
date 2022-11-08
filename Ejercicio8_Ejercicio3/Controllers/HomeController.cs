@@ -40,18 +40,17 @@ namespace Ejercicio8_Ejercicio3.Controllers
         /// <param name="apellido"></param>
         /// <returns></returns>
         [HttpPost]
-        public ActionResult Editar(int id, String nombre, String apellido)
+        public ActionResult Editar(clsPersona persona)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(persona);
+            }
 
-            personaAModificar.Id = id;
-            personaAModificar.Nombre = nombre;
-            personaAModificar.Apellido = apellido;
+            
+           
 
-            String persona = personaAModificar.Id + " " + personaAModificar.Nombre + " " + personaAModificar.Apellido;
-
-            ViewBag.MostrarPersona = persona;
-
-            return View("PersonaModificada");
+            return View("PersonaModificada", persona);
 
         }
 

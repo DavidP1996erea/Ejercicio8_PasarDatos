@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace _08_Ejercicio8
 {
@@ -7,7 +8,9 @@ namespace _08_Ejercicio8
 
 
         #region Atributos
-        private int id; 
+        private int id;
+        
+
         private String nombre;
         private String apellido;
         #endregion
@@ -48,6 +51,7 @@ namespace _08_Ejercicio8
                 id = value;
             }
         }
+        [Required(ErrorMessage = "Campo obligatorio")]
         public String Nombre
         {
 
