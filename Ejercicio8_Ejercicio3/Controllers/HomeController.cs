@@ -8,22 +8,20 @@ namespace Ejercicio8_Ejercicio3.Controllers
     public class HomeController : Controller
     {
 
-        /// <summary>
-        /// Se crea la persona que vamos a crear
-        /// </summary>
-        clsPersona personaAModificar = new clsPersona();
+      
 
 
         /// <summary>
-        /// Se rellena los atributos del objeto persona creado anteriormente y se pasa mediante model a la vista
+        /// Se rellena los atributos del objeto persona  y se pasa mediante model a la vista
         /// </summary>
         /// <returns></returns>
         public ActionResult Editar()
         {
-
+            clsPersona personaAModificar = new clsPersona();
             personaAModificar.Id = 1;
             personaAModificar.Nombre = "Sebastián";
             personaAModificar.Apellido = "András apellido";
+            personaAModificar.FechaNaci = DateTime.Now.Date;
 
 
             return View(personaAModificar);

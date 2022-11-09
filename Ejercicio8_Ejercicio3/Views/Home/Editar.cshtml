@@ -10,14 +10,17 @@
      * Se crea un formulario tipo post, para poder enviar los datos al controller. Cada atributo es recogido de una forma diferente.
      */
     <form method="post">
-    
+
+        @Html.HiddenFor(ocultarID => ocultarID.Id)
         <input type="number" name="id" value=@Model.Id>
         <br>
-        @Html.ValidationMessageFor( e => e.Nombre)
+        @Html.ValidationMessageFor( nombreObligatorio=> nombreObligatorio.Nombre)
         @Html.TextBox("Nombre")
         <br>
+        @Html.ValidationMessageFor( apellidoObligatorio => apellidoObligatorio.Apellido)
         @Html.TextBoxFor(persona=> persona.Apellido)  
         <br>
+        @Html.TextBoxFor(fecha=> fecha.FechaNaci)
         <button type="submit">Editar persona</button>
     
     </form>

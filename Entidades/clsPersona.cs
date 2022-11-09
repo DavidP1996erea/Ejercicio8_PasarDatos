@@ -1,5 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.Runtime.Serialization;
+using System.Web.Mvc;
 
 namespace _08_Ejercicio8
 {
@@ -9,10 +11,9 @@ namespace _08_Ejercicio8
 
         #region Atributos
         private int id;
-        
-
         private String nombre;
         private String apellido;
+        private DateTime fechaNaci;
         #endregion
 
 
@@ -27,12 +28,13 @@ namespace _08_Ejercicio8
 
 
         #region Constructor
-        public clsPersona(String nombre, int id,String apellido)
+        public clsPersona(String nombre, int id,String apellido, DateTime fechaNaci)
         {
 
             this.nombre = nombre;
             this.id = id;   
             this.apellido = apellido;
+            this.fechaNaci = fechaNaci;
         }
         #endregion
 
@@ -40,6 +42,8 @@ namespace _08_Ejercicio8
 
         #region Propiedades
 
+      
+        [HiddenInput(DisplayValue = false)]
         public int Id
         {
             get
@@ -66,7 +70,8 @@ namespace _08_Ejercicio8
 
         }
 
-
+        [Required(ErrorMessage = "Campo obligatorio")]
+        [MaxLength(40, ErrorMessage ="No debe tener más de 40 carácteres")]
         public String Apellido
         {
             get
@@ -77,6 +82,14 @@ namespace _08_Ejercicio8
             {
                 apellido = value;
             }
+        }
+
+        
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        public DateTime FechaNaci
+        {
+            get { return fechaNaci; }
+            set { fechaNaci = value; }
         }
         #endregion
 
